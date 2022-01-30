@@ -31,10 +31,10 @@ export default function Textform(props) {
 
   return (
     <>
-    <div className="container">
+    <div className="container" style={{color: props.mode==='dark'?'white':'black'}}>
         <h1>{props.heading}</h1>
         <div className="mb-3">
-        <textarea className="form-control" value={text} id="Mytext" rows="6" onChange={onchange} placeholder='Enter Text'></textarea>
+        <textarea className="form-control" value={text} id="Mytext" rows="6" onChange={onchange} placeholder='Enter Text' style={{backgroundColor: props.mode==='dark'?'#495057':'white' , color: props.mode==='dark'?'white':'black'}}></textarea>
         </div>
         <button className="btn btn-success" onClick={upclick}>Convert to UpperCase</button>
         <button className="btn btn-dark mx-3" onClick={lowclick}>Convert to LowerCase</button>
@@ -42,7 +42,7 @@ export default function Textform(props) {
         <button className="btn btn-warning mx-3" onClick={clearclick}>Clear The Given Text</button>
         <button className="btn btn-warning" onClick={copyclick}>Copy Text</button>
     </div>
-    <div className="container my-4">
+    <div className="container my-4" style={{color: props.mode==='dark'?'white':'black'}}>
           <h3>Your Text Summary !!</h3>
           <p>{text.split(" ").length -1} Words, {text.length} characters</p>
           <p>{0.008 * text.split("").length} Minutes To Read the Para</p>
