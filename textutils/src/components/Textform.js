@@ -21,7 +21,12 @@ export default function Textform(props) {
     const clearclick = (event)=>{
         settext('')
     }
-    // You cant update things in react like that, you just use settext("blabla") and now text is assigned with blabla
+    const copyclick = (event)=>{
+      var nt = document.getElementById('Mytext');
+      nt.select();
+      navigator.clipboard.writeText(nt.value)
+  }
+    // You cant update things in react like that, you just use settext("blabla") and now text is assigned with blabla(these are called state variables)
     const[text, settext] = useState('')
 
   return (
@@ -35,11 +40,12 @@ export default function Textform(props) {
         <button className="btn btn-dark mx-3" onClick={lowclick}>Convert to LowerCase</button>
         <button className="btn btn-primary" onClick={revclick}>Reverse The Given Text</button>
         <button className="btn btn-warning mx-3" onClick={clearclick}>Clear The Given Text</button>
+        <button className="btn btn-warning" onClick={copyclick}>Copy Text</button>
     </div>
     <div className="container my-4">
           <h3>Your Text Summary !!</h3>
           <p>{text.split(" ").length -1} Words, {text.length} characters</p>
-          <p>{0.008 * text.split(" ").length} Minutes To Read the Para</p>
+          <p>{0.008 * text.split("").length} Minutes To Read the Para</p>
     </div>
     </>
   )
