@@ -4,7 +4,12 @@ import Textform from "./components/Textform";
 import About from "./components/About";
 import React, {useState} from "react";
 import Alert from "./components/Alert";
-
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
 
@@ -43,12 +48,19 @@ function App() {
     <>
     {/* when creating components always use captial words */}
     {/* Props(blank paper, write whatever you want) are like class and you have objects in those, also whatever name you pass the same name should be called in Navbar.js */}
-      <Navbar title = "Godspeed" about="About Me" mode={dm} darkclick={darkclick}/>
-      <Alert alert={alert}/>
-      <div className="container my-4">
-        <Textform showAlert={showAlert} heading="Enter Text for Analysis" mode={dm}/>
-        <About mode={dm}/>
+    <Router>
+    <Navbar title = "Godspeed" about="About Me" mode={dm} darkclick={darkclick}/>
+    <Alert alert={alert}/>
+    <div className="container my-4">
+      <Routes>
+        {/* Use exact if making big website so when user click / only that part opens */}
+          <Route exact path="/about" element={<About mode={dm}/>    }>
+          </Route>
+          <Route exact path="/"  element={<Textform showAlert={showAlert} heading="Enter Text for Analysis" mode={dm}/>}>
+          </Route>
+      </Routes>
       </div>
+      </Router>
     </>
   );
 }
