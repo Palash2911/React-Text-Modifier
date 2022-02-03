@@ -7,9 +7,11 @@ import Alert from "./components/Alert";
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
+
+
+// Run 'npm run build' to run live sserver or host website, it basically creates a new folder called build that has the website
 
 function App() {
 
