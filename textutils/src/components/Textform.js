@@ -5,26 +5,31 @@ export default function Textform(props) {
     const upclick = ()=>{
         let newtext=text.toUpperCase();
         settext(newtext)
+        props.showAlert("Converted to Upper Case !!", "success")
     }
     const lowclick = ()=>{
       let newtext=text.toLowerCase();
       settext(newtext)
+      props.showAlert("Converted to Lower Case !!", "success")
     }
     const revclick = ()=>{
       let newtext=text.split("").reverse();
       let newt = newtext.join("")
       settext(newt)
+      props.showAlert("Given Text Reversed !!", "success")
     }
     const onchange = (event)=>{
         settext(event.target.value)
     }
     const clearclick = (event)=>{
         settext('')
+        props.showAlert("Cleared Text !!", "success")
     }
     const copyclick = (event)=>{
       var nt = document.getElementById('Mytext');
       nt.select();
       navigator.clipboard.writeText(nt.value)
+      props.showAlert("Copied to Clipboard !!", "success")
   }
     // You cant update things in react like that, you just use settext("blabla") and now text is assigned with blabla(these are called state variables)
     const[text, settext] = useState('')
