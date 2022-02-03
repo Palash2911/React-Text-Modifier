@@ -25,6 +25,12 @@ function App() {
       setdm('dark')
       document.body.style.backgroundColor='#495057'
       showAlert("Dark Mode Has been Enabled !!", "success")
+
+      //Set anything every - ___seconds
+      // setInterval(() => {
+      // Set custom title
+      // document.title = "Hello World"
+      // }, 1000);
     }
     else{
       setdm('light')
