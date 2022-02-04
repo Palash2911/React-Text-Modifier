@@ -29,6 +29,7 @@ export default function Textform(props) {
       var nt = document.getElementById('Mytext');
       nt.select();
       navigator.clipboard.writeText(nt.value)
+      document.getSelection().removeAllRanges()
       props.showAlert("Copied to Clipboard !!", "success")
   }
     // You cant update things in react like that, you just use settext("blabla") and now text is assigned with blabla(these are called state variables)
