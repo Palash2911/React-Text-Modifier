@@ -41,15 +41,15 @@ export default function Textform(props) {
         <div className="mb-3">
         <textarea className="form-control" value={text} id="Mytext" rows="6" onChange={onchange} placeholder='Enter Text' style={{backgroundColor: props.mode==='dark'?'#495057':'white' , color: props.mode==='dark'?'white':'black'}}></textarea>
         </div>
-        <button className="btn btn-success" onClick={upclick}>Convert to UpperCase</button>
-        <button className="btn btn-dark mx-3" onClick={lowclick}>Convert to LowerCase</button>
-        <button className="btn btn-primary" onClick={revclick}>Reverse The Given Text</button>
-        <button className="btn btn-warning mx-3" onClick={clearclick}>Clear The Given Text</button>
-        <button className="btn btn-warning" onClick={copyclick}>Copy Text</button>
+        <button disabled={text.length===0} className="btn btn-success mx-2 my-2" onClick={upclick}>Convert to UpperCase</button>
+        <button disabled={text.length===0} className="btn btn-dark mx-2 my-2" onClick={lowclick}>Convert to LowerCase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={revclick}>Reverse The Given Text</button>
+        <button disabled={text.length===0} className="btn btn-danger mx-2 my-2" onClick={clearclick}>Clear The Given Text</button>
+        <button disabled={text.length===0} className="btn btn-warning mx-2 my-2" onClick={copyclick} style={{color: 'white'}}>Copy Text To Clipboard</button>
     </div>
     <div className="container my-4" style={{color: props.mode==='dark'?'white':'black'}}>
           <h3>Your Text Summary !!</h3>
-          <p>{text.split(" ").length -1} Words, {text.length} characters</p>
+          <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} Words, {text.length} characters</p>
           <p>{0.008 * text.split("").length} Minutes To Read the Para</p>
     </div>
     </>
