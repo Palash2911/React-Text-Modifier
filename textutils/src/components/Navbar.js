@@ -20,12 +20,14 @@ export default function Navbar(props){
           <Link className="nav-link" to="/about">{props.about}</Link>
         </li>
       </ul>
-      <ul className="my-2">
-      <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
-        <input className="form-check-input" onClick={props.darkclick} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Dark Mode</label>
+      <div className="d-flex">
+        <div className="bg-primary rounded mx-2" onClick={()=>{props.darkclick('primary')}} style={{height:'25px', width:'25px', cursor: 'pointer'}}></div>
+        <div className="bg-warning rounded mx-2" onClick={()=>{props.darkclick('warning')}} style={{height:'25px', width:'25px', cursor: 'pointer'}}></div>
+        <div className="bg-success rounded mx-2" onClick={()=>{props.darkclick('success')}} style={{height:'25px', width:'25px', cursor: 'pointer'}}></div>
+        <div className="bg-danger rounded mx-2" onClick={()=>{props.darkclick('danger')}} style={{height:'25px', width:'25px', cursor: 'pointer'}}></div>
+        <div className="bg-light rounded mx-2" onClick={()=>{props.darkclick('light')}} style={{height:'25px', width:'25px', cursor: 'pointer'}}></div>
+        <div className="bg-dark rounded mx-2" onClick={()=>{props.darkclick('dark')}} style={{height:'25px', width:'25px', cursor: 'pointer'}}></div>
       </div>
-      </ul>
     </div>
   </div>
 </nav>

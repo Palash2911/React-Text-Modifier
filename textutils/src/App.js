@@ -27,7 +27,18 @@ function App() {
       Setalert(null)
     }, 1000);
   }
-  const darkclick = ()=>{
+
+  const remvoebodyclass =()=>{
+    document.body.classList.remove('bg-primary')
+    document.body.classList.remove('bg-warning')
+    document.body.classList.remove('bg-success')
+    document.body.classList.remove('bg-danger')
+    document.body.classList.remove('bg-light')
+    document.body.classList.remove('bg-dark')
+  }
+  const darkclick = (cls)=>{
+    remvoebodyclass()
+    document.body.classList.add('bg-'+cls)
     if(dm === 'light'){
       setdm('dark')
       document.body.style.backgroundColor='#495057'
