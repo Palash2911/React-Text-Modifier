@@ -26,10 +26,7 @@ export default function Textform(props) {
         props.showAlert("Cleared Text !!", "success")
     }
     const copyclick = (event)=>{
-      var nt = document.getElementById('Mytext');
-      nt.select();
-      navigator.clipboard.writeText(nt.value)
-      document.getSelection().removeAllRanges()
+      navigator.clipboard.writeText(text)
       props.showAlert("Copied to Clipboard !!", "success")
   }
     // You cant update things in react like that, you just use settext("blabla") and now text is assigned with blabla(these are called state variables)
@@ -50,7 +47,8 @@ export default function Textform(props) {
     </div>
     <div className="container my-4" style={{color: props.mode==='dark'?'white':'black'}}>
           <h3>Your Text Summary !!</h3>
-          <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} Words, {text.length} characters</p>
+          {/* \s+ checks any white spaces that is whether it is a new line or space in middle */}
+          <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Words, {text.length} characters</p>
           <p>{0.008 * text.split("").length} Minutes To Read the Para</p>
     </div>
     </>
