@@ -1,5 +1,4 @@
 import Navbar from "./components/Navbar";
-import PropTypes from 'prop-types';
 import Textform from "./components/Textform";
 import About from "./components/About";
 import React, {useState} from "react";
